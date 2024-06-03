@@ -1,6 +1,12 @@
+import { Routes } from 'react-router-dom'
+import Navigation from '../Navigation/Navigation'
+
 
 export default function App() {
   return (
-    <p>Hello world</p>
+    <div>
+      <Navigation />
+
+    </div>
   )
 }
