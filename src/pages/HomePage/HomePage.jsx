@@ -1,6 +1,7 @@
 import { getTrendingMovies } from '../../api'
 import { useEffect, useState } from 'react'
 import MovieList from '../../components/MovieList/MovieList'
+import css from './HomePage.module.css'
 
 
 export default function HomePage() {
@@ -23,7 +24,11 @@ export default function HomePage() {
 
     
     return (
-        <MovieList movies={movies} />
+        <>
+            <h1 className={css.title}>Trending Movies</h1>
+            <MovieList movies={movies} />
+        </>
+        
       )
   }
 

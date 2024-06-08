@@ -6,10 +6,11 @@ export default function MovieList({ movies }) {
         <ul className={css.wrapper}>
             {movies.map(({id, title, poster_path}) => (
                 <li key={id}>
-                    <a href="" className={css.card}>
+
+                    <Link to={`/movies/${id}`} className={css.card}>
                         <img src={`https://image.tmdb.org/t/p/w185${poster_path}`} alt={`${title} poster`} />
                         <p>{title}</p>
-                    </a>
+                    </Link>
                 </li>
 
             ))}
