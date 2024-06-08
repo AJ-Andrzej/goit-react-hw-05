@@ -10,7 +10,6 @@ export const getTrendingMovies = async () => {
             Authorization: `${apiKey}`,
   }
     })
-    console.log(response.data.results);
     return response.data
     
 } 
