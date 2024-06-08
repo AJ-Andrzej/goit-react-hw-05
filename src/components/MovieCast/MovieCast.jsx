@@ -13,7 +13,6 @@ export default function MovieCast() {
             try {
                 const dataCast = await getMoviesCast(movieId)
                 setCast(dataCast.cast)
-                console.log(dataCast.cast);
             }
             catch (err){
             console.log(err);
