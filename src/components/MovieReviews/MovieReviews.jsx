@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import css from './MovieReviews.module.css'
 import { useParams } from "react-router-dom";
-import {getMoviesReviews} from '../../api'
+import { getMoviesReviews } from '../../api'
+
+
 
 export default function MovieReviews() {
 

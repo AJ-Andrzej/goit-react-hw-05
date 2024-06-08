@@ -45,4 +45,13 @@ export const getMoviesReviews = async (id) => {
     return response.data
 }
 
-
+export const getFiltredMovies = async (filter) => {
+    const response = await axios.get(`${baseUrl}/search/movie`, {
+        params: { query: `${filter}` },
+        headers: {
+            accept: 'application/json',
+            Authorization: `${apiKey}`,
+  }
+    })
+    return response.data
+}

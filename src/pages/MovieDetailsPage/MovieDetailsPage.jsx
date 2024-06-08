@@ -1,11 +1,20 @@
-import { useParams, NavLink, Outlet } from "react-router-dom";
-import { useEffect, useState } from 'react'
+import { useParams, NavLink, Outlet, Link, useLocation } from "react-router-dom";
+import { useEffect, useState, useRef,  Suspense} from 'react'
 import { getgMovieById } from '../../api'
 import css from './MovieDetailsPage.module.css'
+import clsx from 'clsx'
+
+
+const getLinkClass = ({ isActive }) => {
+    return clsx(css.link, isActive && css.acitve)
+}
+
 
 export default function MovieDetailsPage() {
     const [movie, setMovie] = useState(null)
     const { movieId } = useParams()
+    const location = useLocation()
+    const backLinkRef = useRef(location.state ?? '/movies');
     
         useEffect(() => {
 
@@ -21,12 +30,19 @@ export default function MovieDetailsPage() {
         fethMovie()
        
         }, [movieId]);
-    
+        
     
     
     
     return (
-        <>
+        <>  
+
+            <Link
+                className={css.back}
+                to={backLinkRef.current}
+            >
+                    Go Back
+            </Link>
             {movie && <div className={css.info}>
 
             <div className={css.baseWrapper}>
@@ -42,12 +58,15 @@ export default function MovieDetailsPage() {
             </div>
             <div className={css.additional}>
                 <p className={css.text}>Additional infomation </p>
-                <div className={css.link}>
-                    <NavLink to="cast">Cast</NavLink>
-                    <NavLink to="reviews">Reviews</NavLink>
+                <div className={css.nav}>
+                    <NavLink className={getLinkClass} to="cast">Cast</NavLink>
+                    <NavLink className={getLinkClass} to="reviews">Reviews</NavLink>
                 </div> 
                 </div>
-                <Outlet />
+                <Suspense fallback={<div>Loading...</div>}>
+                     <Outlet />
+                </Suspense>
+               
         </div>}
         </>
     )

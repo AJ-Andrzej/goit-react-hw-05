@@ -1,0 +1,19 @@
+.form{
+    margin: 40px auto 20px auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.input {
+    height: 40px;
+    width: 400px;
+    padding: 10px;
+}
+
+.btn{
+    background-color: orange;
+    border-radius: 15px;
+    width: 100px;
+}

@@ -1,11 +1,13 @@
 import { getTrendingMovies } from '../../api'
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import MovieList from '../../components/MovieList/MovieList'
 import css from './HomePage.module.css'
 
 
 export default function HomePage() {
     const [movies, setMovies] = useState([])
+    const location = useLocation()
     
         useEffect(() => {
 
@@ -26,7 +28,7 @@ export default function HomePage() {
     return (
         <>
             <h1 className={css.title}>Trending Movies</h1>
-            <MovieList movies={movies} />
+            <MovieList movies={movies} location={location}/>
         </>
         
       )
