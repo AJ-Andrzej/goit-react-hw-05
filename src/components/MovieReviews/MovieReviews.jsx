@@ -10,6 +10,9 @@ export default function MovieReviews() {
     const [reviews, setReviews] = useState([])
     const { movieId } = useParams()
     useEffect(() => {
+
+        if (!movieId) return
+        
          async function fethCast() {
             try {
                 const dataReviews = await getMoviesReviews(movieId)
