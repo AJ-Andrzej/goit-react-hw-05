@@ -39,11 +39,10 @@ export default function MovieReviews() {
                         ))}
                 </ul>
         ) :  (
-        <p className={css.text}>We don't have any reviews for this movie.</p>
+        <p className={css.text}>We dont have any reviews for this movie.</p>
       )}
     </div>
        
       
     )
 }
-<p className={css.text}>We don't have any reviews for this movie.</p>    
